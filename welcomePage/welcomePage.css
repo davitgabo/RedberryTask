@@ -1,0 +1,52 @@
+.wp-mainSection {
+  background-image: url("../assets/img/stars.png");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wp-header h1 {
+  font-size: 6rem;
+  line-height: 7.451rem;
+  font-weight: 400;
+  color: #fe3b1f;
+  font-family: Rowdies;
+  padding: 2.5rem;
+  margin-top: 5rem;
+}
+
+.wp-buttonWrapper {
+  margin-top: 6.562rem;
+}
+
+.wp-buttonWrapper a {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  line-height: 1.812rem;
+}
+
+.wp-startButton {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.wp-startButton a {
+  background-color: #fe3b1f;
+  border-radius: 3.125rem;
+  padding: 1.5rem 5rem;
+}
+
+.wp-submittedApps {
+  padding: 2rem 2rem 0 2rem;
+  text-align: center;
+}
+
+.wp-submittedApps a {
+  text-decoration: underline;
+}
