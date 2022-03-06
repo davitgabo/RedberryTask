@@ -1,0 +1,197 @@
+.qp-section {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.qp-left {
+  left: 0;
+  background-color: #ffffff;
+}
+
+.qp-right {
+  right: 0;
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  color: #ffffff;
+}
+
+.qp-displayFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.qp-mainSection h1 {
+  font-family: Rowdies;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 5rem;
+  color: #fe3b1f;
+  margin: 8rem 7.3rem 8rem 6.56rem;
+  padding: 0 2rem;
+  width: 45rem;
+  text-align: center;
+}
+
+.qp-inform {
+  width: 31rem;
+  margin: 0 auto;
+  font-family: MonserratItalic;
+}
+
+.qp-input {
+  margin-bottom: 2.3rem;
+}
+
+.qp-input input {
+  padding: 1.1rem 0 0.8rem 3.56rem;
+  width: 27rem;
+}
+
+.qp-input select {
+  width: 31rem;
+  padding: 1.1rem 0 0.8rem 3.56rem;
+}
+
+.qp-input input:focus {
+  outline: none;
+}
+
+.qp-addLanguageBtn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.qp-addLanguageBtn button {
+  padding: 0.8rem;
+  background-color: #fe3b1f;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.qp-skillsWrapper {
+  width: 31rem;
+}
+
+.qp-skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 0.2rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.qp-skills img {
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+
+.qp-invalid {
+  border-color: red;
+}
+
+.qp-invalidText {
+  color: red;
+}
+
+.qp-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+  align-items: center;
+}
+
+.qp-navButton {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: #fe3b1f;
+  opacity: 30%;
+  margin: 0.5rem;
+}
+
+.qp-navButtonActive {
+  opacity: 100%;
+}
+
+.qp-previous {
+  transform: rotateY(180deg);
+}
+
+.qp-right h1 {
+  text-align: left;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  width: 47rem;
+  height: auto;
+}
+
+.qp-rightParagraph {
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  text-align: left;
+  vertical-align: middle;
+  width: 44rem;
+  height: 45rem;
+}
+
+.qp-background {
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qp-buttonWrapper a {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  line-height: 1.812rem;
+}
+
+.qp-buttonWrapper a {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  line-height: 1.812rem;
+}
+
+.qp-submitButton {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.qp-submitButton a {
+  background-color: #fe3b1f;
+  border-radius: 3.125rem;
+  padding: 1.5rem 5rem;
+}
+
+.qp-back {
+  padding: 2.5rem 2rem 0 2rem;
+  text-align: center;
+}
+
+.qp-back a {
+  text-decoration: underline;
+}
+
+.qp-hidden {
+  display: none;
+}

@@ -15,8 +15,7 @@
   font-weight: 400;
   color: #fe3b1f;
   font-family: Rowdies;
-  padding: 2.5rem;
-  margin-top: 5rem;
+  margin-top: 11rem;
 }
 
 .wp-buttonWrapper {
@@ -43,7 +42,7 @@
 }
 
 .wp-submittedApps {
-  padding: 2rem 2rem 0 2rem;
+  padding: 2.5rem 2rem 0 2rem;
   text-align: center;
 }
 

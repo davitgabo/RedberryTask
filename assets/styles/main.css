@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 @font-face {
@@ -11,6 +11,11 @@
 @font-face {
   font-family: Montserrat;
   src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: MonserratItalic;
+  src: url(../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf);
 }
 
 a {
