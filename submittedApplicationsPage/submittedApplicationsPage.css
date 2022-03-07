@@ -1,0 +1,140 @@
+.sp-appPage {
+    background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sp-appPageWrapper {
+    width: 60%;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.sp-header {
+    font-size: 5.6rem;
+    line-height: 6.9rem;
+    font-weight: 700;
+    font-family: Rowdies;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.sp-accordion {
+    background-color: #F05039;
+    cursor: pointer;
+    color: #fff;
+    padding: 1.8rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+  
+.sp-panel {
+    padding: 2rem 6rem;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    height: 100%;
+}
+
+.sp-accordion:after {
+    content: '\2193';
+    font-size: 1.3rem;
+    color: #fff;
+    float: right;
+    margin-left: .5rem;
+}
+
+.sp-active:after {
+    content: "\2191";
+}
+
+.sp-infoSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 5rem;
+}
+
+.sp-infoBlock {
+    padding: 1rem;
+}
+
+.sp-infoHeader {
+    font-size: 1.8rem;
+    line-height: 2.19rem;
+    color: #fe3b1f;
+    font-family: MontserratItalic;
+    text-decoration: underline;
+}
+
+.sp-info {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-family: MontserratItalic;
+    margin-top: 3rem;
+}
+
+.sp-infoDiv {
+    color: #000;
+    font-size: 1.2rem;
+    min-width: 10rem;
+    display: inline-block;
+}
+
+.sp-infoDivGreyColor {
+    color: #454545;
+}
+
+.sp-covid {
+    margin-bottom: 5rem;
+}
+
+.sp-radioInputWrapper {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.sp-radioInput {
+    display: flex;
+    align-items: center;
+}
+
+.sp-radioInput label {
+    font-size: 1.4rem;
+}
+
+.sp-radioInput input {
+    margin: 0.5rem;
+}
+
+.sp-dateInput input {
+    margin-top: 1rem;
+    width: 60%;
+    font-size: 1.4rem;
+    padding: 1.1rem 1.56rem 0.8rem 3.56rem;
+}
+
+.sp-dateInput input::-webkit-calendar-picker-indicator {
+    background-image: url("../assets/img/calendar.png");
+}
+
+.sp-textareaWrapper {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.sp-textarea {
+    margin-top: 1rem;
+}
+
+.sp-textarea textarea {
+    width: 100%;
+    padding: 1.1rem 1.56rem 0.8rem 1.56rem;
+    resize: none;
+    font-size: 1.4rem;
+}

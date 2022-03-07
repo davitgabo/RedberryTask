@@ -6,6 +6,30 @@ const Http = new XMLHttpRequest();
 const skillsGetUrl = "https://bootcamp-2022.devtest.ge/api/skills";
 const questionnarePostUrl = "https://bootcamp-2022.devtest.ge/api/application"
 
+const pages = ["personalInf", "skills", "covid", "insights", "submit"];
+const validation = {
+  personalInf: {
+    FirstName: false,
+    LastName: false,
+    email: false,
+  },
+  skills: {
+    atLeastone: false,
+  },
+  covid: {
+    preferToWork: false,
+    contactCovid: false,
+    when: false,
+    vaccinated: false,
+    whenvaccinated: false,
+  },
+  insights: {
+    devtalks: false,
+    about: false,
+    somethingSpecial: false,
+  },
+};
+
 /* functions */
 
 function hideAll() {
@@ -17,6 +41,15 @@ function hideAll() {
 }
 
 function redirect(id) {
+  let pagenumber = pages.indexOf(id);
+  for (i = 0; i < pagenumber; i++) {
+    for (const [key, value] of Object.entries(validation[pages[i]])) {
+      console.log(key, value);
+      if (value == false) {
+        return;
+      }
+    }
+  }
   hideAll();
   document.getElementById(id).className = "nothidden";
 }
@@ -26,20 +59,25 @@ function checkName(name, prefix) {
     /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~1234567890]/;
 
   if (forbiddenCharacters.test(name) || name.length < 2) {
+    validation.personalInf[prefix] = false;
     return prefix + " is not valid";
   } else {
+    validation.personalInf[prefix] = true;
     return null;
   }
 }
 
 function checkMail(mail) {
   if (mail.search(/@/) < 0) {
+    validation.personalInf["email"] = false;
     return "Email not valid";
   } else {
     let fields = mail.split("@");
     if (fields[1].search(/\./) < 1) {
+      validation.personalInf["email"] = false;
       return "Email not valid";
     } else {
+      validation.personalInf["email"] = true;
       return null;
     }
   }
@@ -94,19 +132,20 @@ function addProgrammingLanguage() {
                   <div><img src="../assets/img/Remove.png" id="removeBtn-${skillId}" onclick="removeSkill(${skillId})" alt="remove" /></div>
                 </div>
     `;
+    validation.skills.atLeastone = true;
     skillsArr.push({
       id: skillId,
       experience: skillDuration
     })
   }
-
-  
-
 }
 
 function removeSkill(skillId) {
   document.getElementById("skill-" + skillId).remove();
   skillsArr = skillsArr.filter(skill => skill.id != skillId);
+  if (!skillsArr.length){
+    validation.skills.atLeastone = false;
+  }
 }
 
 function appendSkills(skills) {
@@ -122,14 +161,14 @@ function generateBodyForSendRequest() {
   const first_name = document.getElementById("firstName").value;
   const last_name = document.getElementById("lastName").value;
   const email = document.getElementById("email").value;
-  const phone = document.getElementById("number").value;
+  const phone = document.getElementById("number").value ? document.getElementById("number").value : "No phone number"; // ტელეფონის ნომერს ითხოვს სერვერი, როდესაც ტელეფონის ნომერი სავალდებულო ველი არ არის.
   const skills = skillsArr
   const work_preference = document.querySelector("input[name='work_preference']:checked")?.value;
   const had_covid = document.querySelector("input[name='covid_contraction']:checked")?.value
-  const had_covid_at = document.getElementById("had_covid_at").value;
+  const had_covid_at = document.getElementById("had_covid_at").value ? document.getElementById("had_covid_at").value : new Date(); // კოვიდის თარიღს ითხოვს სერვერი, როდესაც კოვიდის მნიშვნელობა false არის.
   const vaccinated = document.querySelector("input[name='vaccinated']:checked")?.value
-  const vaccinated_at = document.getElementById("had_vaccine_at").value
-  const will_organize_devtalk = document.querySelector("input[name='attendance']:checked")?.value
+  const vaccinated_at = document.getElementById("had_vaccine_at").value ? document.getElementById("had_vaccine_at").value : new Date(); // ვაქცინაციის თარიღს ითხოვს სერვერი, როდესაც ვაქცინაციის მნიშვნელობა false არის.
+  const will_organize_devtalk = document.querySelector("input[name='attendence']:checked")?.value
   const devtalk_topic = document.getElementById("devtalk_subject").value
   const something_special = document.getElementById("something_special").value
 
@@ -155,6 +194,102 @@ function submitForm() {
   sendQuestionnareFormWithHttpReq();
 }
 
+function toggleCovidCalendar() {
+  let covidCalendarDiv = document.getElementById("covid-date");
+  let had_covid = document.querySelectorAll('input[name="covid_contraction"]');
+  had_covid.forEach(elem => {
+    elem.addEventListener("change", function(event) {
+      validation.covid.contactCovid = true;
+      if (event.target.value == "false") {
+        validation.covid.when = true;
+        covidCalendarDiv.style.display = "none";
+      } else {
+        validation.covid.when = false;
+        covidCalendarDiv.style.display = "block";
+      }
+    })
+  })
+}
+
+toggleCovidCalendar();
+
+function toggleVaccineCalendar() {
+  let vaccineCalendarDiv = document.getElementById("vaccine-date");
+  let had_vaccine = document.querySelectorAll('input[name="vaccinated"]');
+  had_vaccine.forEach(elem => {
+    elem.addEventListener("change", function(event) {
+      validation.covid.vaccinated = true;
+      if (event.target.value == "false") {
+        validation.covid.whenvaccinated = true;
+        vaccineCalendarDiv.style.display = "none";
+      } else {
+        validation.covid.whenvaccinated=false;
+        vaccineCalendarDiv.style.display = "block";
+      }
+    })
+  })
+}
+
+toggleVaccineCalendar();
+
+function toggleDevtalk() {
+  let devtalkDiv = document.getElementById("devtalk");
+  let devtalkAttendence = document.querySelectorAll('input[name="attendence"]');
+  devtalkAttendence.forEach(elem => {
+    elem.addEventListener("change", function(event) {
+      validation.insights.devtalks = true;
+      if (event.target.value == "false") {
+        validation.insights.about = true;
+        devtalkDiv.style.display = "none";
+      } else {
+        validation.insights.about = false;
+        devtalkDiv.style.display = "block";
+      }
+    })
+  })
+}
+
+toggleDevtalk();
+
+function checkWorkPreference() {
+  let workPreference = document.querySelectorAll('input[name="work_preference"]');
+  workPreference.forEach(elem => {
+    elem.addEventListener('change', function() {
+      validation.covid.preferToWork = true;
+    })
+  })
+}
+
+checkWorkPreference();
+
+
+function checkText(id, name) {
+  text = document.getElementById(id)?.value;
+  if(text !== "") {
+    validation.insights[name] = true;
+  } else {
+    validation.insights[name] = false;
+  }
+}
+
+function onVaccineDateChange() {
+  let calendarValue = document.getElementById("had_vaccine_at")?.value;
+  if(calendarValue !== "") {
+    validation.covid.whenvaccinated = true;
+  } else {
+    validation.covid.whenvaccinated = false;
+  }
+}
+
+function onCovidDateChange() {
+  let calendarValue = document.getElementById("had_covid_at")?.value;
+  if(calendarValue !== "") {
+    validation.covid.when = true;
+  } else {
+    validation.covid.when = false;
+  }
+}
+
 /* Services */
 
 function getSkills() {
@@ -175,13 +310,12 @@ function sendQuestionnareFormWithHttpReq() {
     headers: {'Content-Type': 'application/json', 'accept': 'application/json'}, 
     body: JSON.stringify(reqBody)
   }).then(res => {
-    console.log(res)
     if(res.ok) {
       document.getElementById("submit-button").className = "qp-hidden";
       document.getElementById("thank-you-text").className = ""
 
       setTimeout(function() {
-        window.location.href = '../submittedApplicationsPage/submittedApplicationsPage.html'
+        window.location.href = '../welcomePage/welcomePage.html'
       }, 3000)
       
     }
@@ -194,7 +328,7 @@ function sendQuestionnareFormWithHttpReq() {
 document.getElementById("firstName").oninput = function () {
   let respond = checkName(
     document.getElementById("firstName").value,
-    "First name"
+    "FirstName"
   );
   document.getElementById("firstNameVal").innerHTML = respond;
   appendClass(respond, "firstName");
@@ -203,7 +337,7 @@ document.getElementById("firstName").oninput = function () {
 document.getElementById("lastName").oninput = function () {
   let respond = checkName(
     document.getElementById("lastName").value,
-    "Last name"
+    "LastName"
   );
   document.getElementById("lastNameVal").innerHTML = respond;
   appendClass(respond, "lastName");

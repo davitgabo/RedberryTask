@@ -237,3 +237,7 @@
   font-weight: 400;
   font-family: Rowdies;
 }
+
+#covid-date, #vaccine-date, #devtalk {
+  display: none;
+}
