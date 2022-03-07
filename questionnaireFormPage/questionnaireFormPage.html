@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="questionnaireFormPage.css" />
   </head>
   <body>
-    <div class="qp-hidden">
+    <div class="qp-nothidden" id="personalInf">
       <div class="qp-mainSection">
         <div class="qp-left qp-section">
           <h1>Hey, Rocketeer, what are your coordinates?</h1>
@@ -33,12 +33,19 @@
           </form>
           <div class="qp-nav">
             <img src="../assets/img/Next.png" class="qp-previous" />
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton"></div>
-            <div class="qp-navButton"></div>
-            <div class="qp-navButton"></div>
-            <div class="qp-navButton"></div>
-            <img src="../assets/img/Next.png" class="qp-next" />
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('personalInf')"
+            ></div>
+            <div class="qp-navButton" onclick="redirect('skills')"></div>
+            <div class="qp-navButton" onclick="redirect('covid')"></div>
+            <div class="qp-navButton" onclick="redirect('insights')"></div>
+            <div class="qp-navButton" onclick="redirect('submit')"></div>
+            <img
+              src="../assets/img/Next.png"
+              class="qp-next"
+              onclick="redirect('skills')"
+            />
           </div>
         </div>
 
@@ -58,7 +65,7 @@
       </div>
     </div>
 
-    <div class="qp-shidden">
+    <div class="qp-hidden" id="skills">
       <div class="qp-mainSection">
         <div class="qp-left qp-section">
           <h1>Tell us about your skills</h1>
@@ -88,13 +95,27 @@
             <div class="qp-skillsWrapper" id="skillsWrapper"></div>
           </form>
           <div class="qp-nav">
-            <img src="../assets/img/Next.png" class="qp-previous" />
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton"></div>
-            <div class="qp-navButton"></div>
-            <div class="qp-navButton"></div>
-            <img src="../assets/img/Next.png" class="qp-next" />
+            <img
+              src="../assets/img/Next.png"
+              class="qp-previous"
+              onclick="redirect('personalInf')"
+            />
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('personalInf')"
+            ></div>
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('skills')"
+            ></div>
+            <div class="qp-navButton" onclick="redirect('covid')"></div>
+            <div class="qp-navButton" onclick="redirect('insights')"></div>
+            <div class="qp-navButton" onclick="redirect('submit')"></div>
+            <img
+              src="../assets/img/Next.png"
+              class="qp-next"
+              onclick="redirect('covid')"
+            />
           </div>
         </div>
 
@@ -114,20 +135,37 @@
       </div>
     </div>
 
-    <div class="qp-hidden">
+    <div class="qp-hidden" id="covid">
       <div class="qp-mainSection">
         <div class="qp-left qp-section">
           <h1>Covid Stuff</h1>
           <form class="qp-inform qp-displayFlex"></form>
 
           <div class="qp-nav">
-            <img src="../assets/img/Next.png" class="qp-previous" />
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton"></div>
-            <div class="qp-navButton"></div>
-            <img src="../assets/img/Next.png" class="qp-next" />
+            <img
+              src="../assets/img/Next.png"
+              class="qp-previous"
+              onclick="redirect('skills')"
+            />
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('personalInf')"
+            ></div>
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('skills')"
+            ></div>
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('covid')"
+            ></div>
+            <div class="qp-navButton" onclick="redirect('insights')"></div>
+            <div class="qp-navButton" onclick="redirect('submit')"></div>
+            <img
+              src="../assets/img/Next.png"
+              class="qp-next"
+              onclick="redirect('insights')"
+            />
           </div>
         </div>
 
@@ -148,20 +186,40 @@
       </div>
     </div>
 
-    <div class="qp-hidden">
+    <div class="qp-hidden" id="insights">
       <div class="qp-mainSection">
         <div class="qp-left qp-section">
           <h1>What about you?</h1>
           <form class="qp-inform qp-displayFlex"></form>
 
           <div class="qp-nav">
-            <img src="../assets/img/Next.png" class="qp-previous" />
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton qp-navButtonActive"></div>
-            <div class="qp-navButton"></div>
-            <img src="../assets/img/Next.png" class="qp-next" />
+            <img
+              src="../assets/img/Next.png"
+              class="qp-previous"
+              onclick="redirect('covid')"
+            />
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('personalInf')"
+            ></div>
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('skills')"
+            ></div>
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('covid')"
+            ></div>
+            <div
+              class="qp-navButton qp-navButtonActive"
+              onclick="redirect('insights')"
+            ></div>
+            <div class="qp-navButton" onclick="redirect('submit')"></div>
+            <img
+              src="../assets/img/Next.png"
+              class="qp-next"
+              onclick="redirect('submit')"
+            />
           </div>
         </div>
 
@@ -184,15 +242,15 @@
       </div>
     </div>
 
-    <div class="qp-hidden">
+    <div class="qp-hidden" id="submit">
       <div class="qp-background">
         <div class="qp-buttonWrapper">
           <div class="qp-submitButton">
             <a href="#"> Submit </a>
           </div>
 
-          <div class="qp-back">
-            <a href="#">go back</a>
+          <div class="qp-back" onclick="redirect('insights')">
+            <a>go back</a>
           </div>
         </div>
       </div>

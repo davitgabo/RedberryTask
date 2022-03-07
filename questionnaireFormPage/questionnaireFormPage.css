@@ -93,7 +93,6 @@
   cursor: pointer;
 }
 
-
 .qp-invalid {
   border-color: red;
 }
@@ -162,13 +161,7 @@
   font-family: Montserrat;
   font-size: 1.5rem;
   line-height: 1.812rem;
-}
-
-.qp-buttonWrapper a {
-  color: #fff;
-  font-family: Montserrat;
-  font-size: 1.5rem;
-  line-height: 1.812rem;
+  cursor: pointer;
 }
 
 .qp-submitButton {

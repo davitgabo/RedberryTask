@@ -1,5 +1,18 @@
 /* functions */
 
+function hideAll() {
+  document.getElementById("personalInf").className = "qp-hidden";
+  document.getElementById("skills").className = "qp-hidden";
+  document.getElementById("covid").className = "qp-hidden";
+  document.getElementById("insights").className = "qp-hidden";
+  document.getElementById("submit").className = "qp-hidden";
+}
+
+function redirect(id) {
+  hideAll();
+  document.getElementById(id).className = "nothidden";
+}
+
 function checkName(name, prefix) {
   const forbiddenCharacters =
     /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~1234567890]/;
@@ -96,7 +109,6 @@ function getSkills() {
   const url = "https://bootcamp-2022.devtest.ge/api/skills";
   Http.open("GET", url);
   Http.send();
-
   Http.onreadystatechange = (e) => {
     appendSkills(JSON.parse(Http.responseText));
   };
