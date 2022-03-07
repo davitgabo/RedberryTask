@@ -30,16 +30,16 @@
   font-size: 4rem;
   line-height: 5rem;
   color: #fe3b1f;
-  margin: 8rem 7.3rem 8rem 6.56rem;
+  margin: 8rem auto 8rem auto;
   padding: 0 2rem;
   width: 45rem;
   text-align: center;
 }
 
 .qp-inform {
-  width: 31rem;
+  width: 40rem;
   margin: 0 auto;
-  font-family: MonserratItalic;
+  font-family: Montserrat;
 }
 
 .qp-input {
@@ -48,7 +48,7 @@
 
 .qp-input input {
   padding: 1.1rem 0 0.8rem 3.56rem;
-  width: 27rem;
+  width: 31rem;
 }
 
 .qp-input select {
@@ -58,6 +58,43 @@
 
 .qp-input input:focus {
   outline: none;
+}
+
+.qp-radioInputWrapper {
+  margin-top: 2rem;
+}
+
+.qp-radioInput {
+  display: flex;
+  align-items: center;
+}
+
+.qp-radioInput input {
+  margin: 0.5rem;
+}
+
+.qp-dateInput input {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1.1rem 1.56rem 0.8rem 3.56rem;
+}
+
+.qp-dateInput input::-webkit-calendar-picker-indicator {
+  background-image: url("../assets/img/calendar.png");
+}
+
+.qp-textareaWrapper {
+  margin-top: 2rem;
+}
+
+.qp-textarea {
+  margin-top: 1rem;
+}
+
+.qp-textarea textarea {
+  width: 100%;
+  padding: 1.1rem 1.56rem 0.8rem 1.56rem;
+  resize: none;
 }
 
 .qp-addLanguageBtn {
@@ -187,4 +224,16 @@
 
 .qp-hidden {
   display: none;
+}
+
+.qp-covid {
+  margin-bottom: 5rem;
+}
+
+.qp-thankYouText {
+  color: #fe3b1f;
+  font-size: 9.6rem;
+  line-height: 11.9rem;
+  font-weight: 400;
+  font-family: Rowdies;
 }

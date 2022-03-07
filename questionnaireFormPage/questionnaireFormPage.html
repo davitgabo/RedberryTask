@@ -71,7 +71,7 @@
           <h1>Tell us about your skills</h1>
           <form class="qp-inform qp-displayFlex">
             <div class="qp-input">
-              <select type="text" id="skills">
+              <select type="text" id="skills-select">
                 <option disabled selected hidden>Skill</option>
               </select>
             </div>
@@ -139,7 +139,57 @@
       <div class="qp-mainSection">
         <div class="qp-left qp-section">
           <h1>Covid Stuff</h1>
-          <form class="qp-inform qp-displayFlex"></form>
+          <form class="qp-inform">
+            <div class="qp-covid">
+              <div class="qp-radioInputWrapper">
+                How would you prefer to work?
+                <div class="qp-radioInput">
+                  <input type="radio" id="from_office" value="from_office" onclick="generateBodyForSendRequest()" name="work_preference"> <label for="from_office">From Sairme Office</label>
+                </div>
+                <div class="qp-radioInput">
+                  <input type="radio" id="from_home" value="from_home" name="work_preference" onclick="generateBodyForSendRequest()"> <label for="from_home">From Home</label>
+                </div>
+                <div class="qp-radioInput">
+                  <input type="radio" id="hybrid" value="hybrid" name="work_preference" onclick="generateBodyForSendRequest()"> <label for="hybrid">Hybrid</label>
+                </div>
+              </div>
+              <div class="qp-radioInputWrapper">
+                Did you contract covid-19? :(
+                <div class="qp-radioInput">
+                  <input type="radio" id="cotract_covid_true" value="true" name="covid_contraction"> <label for="cotract_covid_true">Yes</label>
+                </div>
+                <div class="qp-radioInput">
+                  <input type="radio" id="cotract_covid_false" value="false" name="covid_contraction"> <label for="cotract_covid_true">No</label>
+                </div>
+              </div>
+              <div class="qp-radioInputWrapper">
+                When?
+                <div class="qp-dateInput">
+                  <input type="date" id="had_covid_at" value="had_covid_at">
+                </div>
+  
+              </div>
+            </div>
+            <div class="qp-vaccine">
+              <div class="qp-radioInputWrapper">
+                Have you been vaccinated?
+                <div class="qp-radioInput">
+                  <input type="radio" id="vaccine_true" value="true" name="vaccinated"> <label for="vaccine_true">Yes</label>
+                </div>
+                <div class="qp-radioInput">
+                  <input type="radio" id="vaccine_false" value="false" name="vaccinated"> <label for="vaccine_false">No</label>
+                </div>
+              </div>
+              <div class="qp-radioInputWrapper">
+                When did you get your last covid vaccine?
+                <div class="qp-dateInput">
+                  <input type="date" id="had_vaccine_at" value="had_vaccine_at">
+                </div>
+  
+              </div>
+            </div>
+            
+          </form>
 
           <div class="qp-nav">
             <img
@@ -190,7 +240,31 @@
       <div class="qp-mainSection">
         <div class="qp-left qp-section">
           <h1>What about you?</h1>
-          <form class="qp-inform qp-displayFlex"></form>
+          <form class="qp-inform">
+            <div class="qp-radioInputWrapper">
+              Would you attend Devtalks and maybe also organize your own?
+              <div class="qp-radioInput">
+                <input type="radio" id="attend_true" value="true" name="attendance"> <label for="attend_true">Yes</label>
+              </div>
+              <div class="qp-radioInput">
+                <input type="radio" id="attend_false" value="false" name="attendance"> <label for="attend_false">No</label>
+              </div>
+            </div>
+
+            <div class="qp-textareaWrapper">
+              What would you speak about at Devtalk?
+              <div class="qp-textarea">
+               <textarea name="devtalk_subject" placeholder="I would..." id="devtalk_subject" cols="30" rows="7"></textarea>
+              </div>
+            </div>
+
+            <div class="qp-textareaWrapper">
+              Tell us something special
+              <div class="qp-textarea">
+               <textarea name="something_special" placeholder="I..." id="something_special" cols="30" rows="7"></textarea>
+              </div>
+            </div>
+          </form>
 
           <div class="qp-nav">
             <img
@@ -244,15 +318,21 @@
 
     <div class="qp-hidden" id="submit">
       <div class="qp-background">
-        <div class="qp-buttonWrapper">
+        <div class="qp-buttonWrapper" id="submit-button">
           <div class="qp-submitButton">
-            <a href="#"> Submit </a>
+            <a href="#" onclick="submitForm()"> Submit </a>
           </div>
 
           <div class="qp-back" onclick="redirect('insights')">
             <a>go back</a>
           </div>
         </div>
+        <div class="qp-hidden" id="thank-you-text">
+          <div class="qp-thankYouText">
+            Thanks for Joining 😊
+          </div>
+        </div>
+        
       </div>
     </div>
     <script src="questionnaireFormPage.js"></script>
